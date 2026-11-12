@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- custom -->
+<!-- SHEF: surreal-memes vaporwave cooking show. hand-built, single file -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$SHEF | shef has cooked | how 2 cook: put fire on food</title>
+<meta name="description" content="$SHEF: the surreal meme head in a chef coat, now cooking on Solana. how 2 cook: put fire on food. mind expanding. orang ready.">
+<meta name="theme-color" content="#14001f">
+<meta property="og:title" content="$SHEF: shef has cooked">
+<meta property="og:description" content="how 2 cook: put fire on food. A meme coin on Solana.">
+<meta property="og:image" content="banner.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Comic+Neue:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:where(img){height:auto}
+:root{--void:#14001f;--pink:#ff71ce;--cyan:#01cdfe;--mint:#05ffa1;--lav:#b967ff;--sun:#fffb96;--orang:#ff8c1a;
+  --hue:0deg;--disp:'Bungee',Impact,sans-serif;--shade:'Bungee Shade',Impact,sans-serif;--comic:'Comic Neue','Comic Sans MS',cursive;--mono:'Space Mono',monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--void);color:#f4eaff;font-family:var(--mono);font-size:16px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--mint)}
+button{font:inherit;cursor:pointer}
+
+/* ===== THE VOID (parallax) ===== */
+#void{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;filter:hue-rotate(var(--hue));transition:filter .8s}
+.sky{position:absolute;inset:0;background:linear-gradient(#0b0014 0%,#2a0845 45%,#6a1b6e 62%,#ff71ce 72%,#14001f 72.2%)}
+.sun{position:absolute;left:50%;top:38%;width:min(46vw,380px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);
+  background:linear-gradient(var(--sun),#ff9a5a 55%,var(--pink));-webkit-mask:repeating-linear-gradient(180deg,#000 0 14px,transparent 14px 20px);mask:repeating-linear-gradient(180deg,#000 0 14px,transparent 14px 20px);will-change:transform}
+.floorwrap{position:absolute;left:-50%;right:-50%;bottom:0;height:28vh;perspective:260px;overflow:hidden}
+.floor{position:absolute;inset:-100% 0 0;transform:rotateX(62deg);transform-origin:bottom;
+  background:conic-gradient(#000 25%,#fff 0 50%,#000 0 75%,#fff 0) 0 0/80px 80px;animation:roll 1.4s linear infinite;opacity:.9}
+@keyframes roll{to{background-position:0 80px}}
+.fl{position:absolute;inset:0;will-change:transform}
+.obj{position:absolute;animation:float 6s ease-in-out infinite alternate}
+@keyframes float{to{transform:translateY(-26px) rotate(14deg)}}
+.orang{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffd08a,var(--orang) 50%,#c25500);box-shadow:inset -6px -8px 0 rgba(0,0,0,.18)}
+.orang::before{content:"";position:absolute;top:-12px;left:30px;width:14px;height:22px;background:#2fbf4a;border-radius:0 100% 0 100%}
+.arrow{width:0;height:0;border-left:28px solid transparent;border-right:28px solid transparent;border-bottom:40px solid var(--mint);filter:drop-shadow(0 0 0 #000) drop-shadow(3px 3px 0 #000)}
+.arrow::after{content:"";position:absolute;left:-12px;top:38px;width:24px;height:44px;background:var(--mint)}
+.stairs{width:120px;height:90px;background:linear-gradient(to top,#ddd 0 25%,transparent 25%) 0 0/30px 100%,linear-gradient(to top,#bbb 0 50%,transparent 50%) 30px 0/30px 100% no-repeat,linear-gradient(to top,#999 0 75%,transparent 75%) 60px 0/30px 100% no-repeat,linear-gradient(#777,#777) 90px 0/30px 100% no-repeat;background-repeat:no-repeat;filter:drop-shadow(4px 4px 0 var(--pink))}
+.head{width:110px;filter:drop-shadow(0 0 18px var(--cyan));border-radius:50%;overflow:hidden;aspect-ratio:1}
+.head img{width:100%;height:100%;object-fit:cover}
+.pyr{width:0;height:0;border-left:50px solid transparent;border-right:50px solid transparent;border-bottom:86px solid var(--cyan);opacity:.7}
+
+main{position:relative;z-index:2}
+
+/* ===== MIND METER ===== */
+.mind{position:fixed;z-index:40;right:12px;top:50%;transform:translateY(-50%);width:120px;font-family:var(--disp);font-size:11px;text-align:center;background:rgba(20,0,31,.7);border:2px solid var(--pink);padding:8px;backdrop-filter:blur(4px)}
+.mind .bar{height:160px;width:18px;margin:6px auto;border:2px solid #fff;position:relative;background:#000}
+.mind .bar i{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(0deg,var(--mint),var(--cyan),var(--pink),var(--sun));transition:height .4s}
+.mind b{display:block;color:var(--sun);font-size:12px;min-height:2.6em;font-weight:400}
+.mind .brain{font-size:24px;display:inline-block;transition:transform .4s}
+
+/* ===== MARQUEE ===== */
+.mq{background:linear-gradient(90deg,var(--pink),var(--lav),var(--cyan));color:#000;font-family:var(--comic);font-weight:700;font-size:18px;white-space:nowrap;overflow:hidden;border-bottom:3px solid #000;position:sticky;top:0;z-index:30}
+.mq span{display:inline-block;padding:6px 0 6px 100%;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:60px 16px 24vh;position:relative}
+.onair{display:inline-block;font-family:var(--disp);background:#e00;color:#fff;padding:4px 14px;border-radius:6px;box-shadow:0 0 20px #f00;animation:blk 1s steps(1) infinite;letter-spacing:.1em}
+@keyframes blk{50%{opacity:.35}}
+.tv{width:min(560px,92vw);margin:18px auto;padding:18px;background:linear-gradient(#5a3b26,#3a2416);border-radius:26px;box-shadow:0 0 0 6px #1a0f08,0 30px 60px rgba(0,0,0,.6);position:relative}
+.tv .scr{border-radius:40px/24px;overflow:hidden;position:relative;border:6px solid #111}
+.tv .scr img{width:100%;aspect-ratio:636/351;object-fit:cover;filter:saturate(1.3) contrast(1.05)}
+.tv .scr::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 2px,transparent 2px 4px);animation:scan 6s linear infinite}
+@keyframes scan{to{background-position:0 60px}}
+.tv .knobs{display:flex;justify-content:flex-end;gap:10px;margin-top:10px}
+.tv .knobs i{width:22px;height:22px;border-radius:50%;background:radial-gradient(#ccc,#555);display:block}
+h1.word{font-family:var(--shade);font-weight:400;font-size:clamp(70px,17vw,190px);line-height:.85;margin:0;
+  background:linear-gradient(180deg,var(--sun),var(--orang) 40%,var(--pink) 60%,var(--lav));-webkit-background-clip:text;background-clip:text;color:transparent;
+  transform:perspective(500px) rotateX(18deg);filter:drop-shadow(5px 5px 0 #000) drop-shadow(0 0 30px rgba(255,113,206,.6))}
+.tk{font-family:var(--disp);font-size:22px;color:var(--cyan);text-shadow:2px 2px 0 #000}
+.tag{font-family:var(--comic);font-size:clamp(20px,3.4vw,30px);color:#fff;margin:12px 0 22px;text-shadow:2px 2px 0 #000}
+.tag s{color:#aaa}
+.btn{display:inline-block;text-decoration:none;font-family:var(--disp);font-size:20px;color:#000;padding:14px 28px;background:linear-gradient(var(--sun),var(--orang));border:3px solid #000;box-shadow:6px 6px 0 var(--pink),12px 12px 0 var(--cyan);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-3px,-3px) rotate(-2deg);box-shadow:9px 9px 0 var(--pink),18px 18px 0 var(--cyan)}
+.btn.g{background:linear-gradient(var(--mint),#00b36b)}
+.btns{display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
+
+/* ===== SECTIONS ===== */
+section{padding:100px 16px;position:relative}
+.wrap{max-width:1000px;margin:0 auto}
+.ep{font-family:var(--disp);font-size:13px;color:var(--mint);letter-spacing:.2em}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(34px,6vw,64px);margin:4px 0 24px;line-height:.95;color:#fff;text-shadow:4px 4px 0 var(--lav),8px 8px 0 #000}
+.rv{opacity:0;transform:translateY(50px) scale(.94) rotate(-2deg);transition:opacity .7s,transform .8s cubic-bezier(.2,1.4,.4,1)}
+.rv.in{opacity:1;transform:none}
+
+/* lore = recipe card */
+.card{background:#fffdf3;color:#2a1a10;border-radius:4px;padding:28px 30px;box-shadow:0 0 0 2px #000,14px 14px 0 var(--pink),0 40px 80px rgba(0,0,0,.6);background-image:repeating-linear-gradient(#fffdf3 0 31px,#9fd3ff 31px 32px);background-position:0 70px;font-family:var(--comic);font-size:19px;line-height:32px;position:relative}
+.card h3{font-family:var(--disp);font-weight:400;font-size:28px;margin:0 0 6px;color:#d0006e;line-height:1.1}
+.card p{margin:0 0 32px}
+.card .note{font-family:var(--mono);font-size:14px;line-height:22px;background:var(--sun);border:2px dashed #000;padding:10px;margin:0}
+.stamp{position:absolute;top:-30px;right:-16px;width:120px;height:120px;border-radius:50%;border:5px double #d0006e;color:#d0006e;font-family:var(--disp);display:grid;place-items:center;text-align:center;font-size:14px;line-height:1.1;transform:rotate(18deg);background:rgba(255,255,255,.85)}
+
+/* gallery = ingredient orbit */
+.ing{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:26px}
+.cook{background:none;border:0;padding:0;color:#fff;text-align:center;perspective:600px}
+.cook .fr{display:block;border:4px solid #fff;box-shadow:0 0 0 4px #000,8px 8px 0 4px var(--lav);background:#000;transform:rotateY(var(--ry,0deg)) rotate(var(--rz,0deg));transition:transform .4s,filter .4s;animation:bobb 5s ease-in-out infinite alternate}
+.cook:nth-child(odd) .fr{animation-delay:-2.5s}
+@keyframes bobb{to{translate:0 -12px}}
+.cook img{width:100%;aspect-ratio:1;object-fit:cover}
+.cook:hover .fr{transform:rotateY(14deg) scale(1.06)}
+.cook span{display:block;font-family:var(--comic);font-size:17px;margin-top:10px}
+.cook small{display:block;font-family:var(--mono);font-size:12px;color:var(--cyan)}
+.cook.l1 .fr{filter:sepia(.6) saturate(2)}.cook.l2 .fr{filter:saturate(3) contrast(1.4) hue-rotate(-20deg)}.cook.l3 .fr{filter:invert(1) hue-rotate(180deg) saturate(3)}
+.cook.l4 .fr{filter:brightness(.25) sepia(1)}
+
+/* how 2 buy */
+.steps{counter-reset:s;display:grid;gap:18px}
+.st{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:center;background:rgba(0,0,0,.55);border:2px solid var(--cyan);padding:16px;box-shadow:6px 6px 0 var(--lav)}
+.st:nth-child(even){margin-left:clamp(0px,6vw,80px);border-color:var(--pink)}
+.st::before{counter-increment:s;content:counter(s);font-family:var(--shade);font-size:56px;color:var(--sun);text-align:center;line-height:1}
+.st b{font-family:var(--disp);font-weight:400;font-size:20px;color:var(--mint)}
+.st p{margin:2px 0 0}
+.st i{color:#ccc;font-family:var(--comic);font-style:normal}
+
+/* tokenomics */
+.tk3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.cube{aspect-ratio:1;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,var(--mint),#008f5a);color:#000;border:4px solid #000;box-shadow:12px 12px 0 #006b44,12px 12px 0 4px #000;padding:18px}
+.cube:nth-child(2){background:linear-gradient(135deg,var(--pink),#b0007a);box-shadow:12px 12px 0 #7a0055,12px 12px 0 4px #000}
+.cube:nth-child(3){background:linear-gradient(135deg,var(--cyan),#0075a8);box-shadow:12px 12px 0 #004f73,12px 12px 0 4px #000}
+.cube b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(24px,4vw,34px);line-height:1}
+.cube span{font-family:var(--comic);font-size:18px}
+.ca{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:#000;border:3px solid var(--sun);padding:14px}
+.ca .lb{font-family:var(--disp);color:var(--sun)}
+.ca code{flex:1;min-width:220px;font-family:var(--mono);color:var(--mint);word-break:break-all}
+.ca button{font-family:var(--disp);background:var(--sun);border:3px solid #000;padding:8px 18px;box-shadow:4px 4px 0 var(--pink)}
+
+/* socials */
+.portals{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:20px}
+.portals a{display:grid;place-items:center;aspect-ratio:1;border-radius:50%;text-decoration:none;color:#fff;font-family:var(--disp);font-size:18px;text-align:center;
+  background:radial-gradient(circle,#000 30%,var(--lav) 31%,#000 45%,var(--pink) 46%,#000 60%,var(--cyan) 61%,transparent 72%);animation:spinp 10s linear infinite}
+.portals a span{animation:spinp 10s linear infinite reverse;display:block;text-shadow:2px 2px 0 #000}
+.portals a:hover{animation-duration:1.5s}
+@keyframes spinp{to{transform:rotate(360deg)}}
+
+footer{position:relative;z-index:2;background:#000;padding:40px 16px 60px;text-align:center;font-size:13px;color:#b9a}
+.wa{font-family:var(--comic);font-size:22px;background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,violet,red);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:rb 3s linear infinite}
+@keyframes rb{to{background-position:200% 0}}
+.bdg{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:14px 0}
+.bdg span{font-family:var(--mono);font-size:10px;border:2px outset #999;background:#222;color:var(--mint);padding:3px 8px}
+.gb{max-width:520px;margin:20px auto;text-align:left;border:3px ridge #888;background:#111;padding:12px;font-family:var(--comic);font-size:15px}
+.gb p{margin:4px 0;border-bottom:1px dotted #444}
+.disc{max-width:760px;margin:16px auto 0}
+
+/* trail */
+.tr{position:fixed;z-index:80;pointer-events:none;font-size:18px;animation:fall 1s forwards}
+@keyframes fall{to{transform:translateY(40px) rotate(180deg);opacity:0}}
+
+/* popup */
+.pop{position:fixed;z-index:70;left:16px;bottom:16px;width:min(320px,90vw);background:#c0c0c0;border:3px outset #fff;color:#000;font-family:var(--comic);box-shadow:8px 8px 0 var(--pink);transform:translateX(-130%);transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.pop.on{transform:none}
+.pop .t{background:linear-gradient(90deg,var(--lav),var(--pink));color:#fff;font-family:var(--disp);font-size:12px;padding:4px 6px;display:flex;justify-content:space-between;align-items:center}
+.pop .t button{border:2px outset #fff;background:#c0c0c0;width:22px;height:20px;line-height:1;padding:0;font-size:12px}
+.pop .b{display:flex;gap:10px;padding:12px;align-items:center;font-size:17px}
+.pop img{width:56px;height:56px;object-fit:cover;border:2px solid #000}
+
+@media(max-width:760px){
+  .mind{top:auto;bottom:10px;transform:none;width:auto;display:flex;align-items:center;gap:8px;right:8px;left:auto;padding:4px 8px}
+  .mind .bar{height:14px;width:70px;margin:0}
+  .mind .bar i{top:0;right:auto;height:100%!important;width:var(--w,0)}
+  .mind b{min-height:0;font-size:10px;max-width:110px}
+  .st{grid-template-columns:54px 1fr}.st::before{font-size:40px}
+  .head{width:70px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+@supports (overflow:clip){html,body{overflow-x:clip}}
+</style>
+</head>
+<body>
+
+<div id="void" aria-hidden="true">
+  <div class="sky"></div>
+  <div class="sun" data-speed="0.25"></div>
+  <div class="fl" data-speed="-0.08">
+    <div class="obj pyr" style="left:6%;top:56%"></div>
+    <div class="obj stairs" style="right:18%;top:58%;animation-delay:-2s"></div>
+  </div>
+  <div class="floorwrap"><div class="floor"></div></div>
+  <div class="fl" data-speed="-0.25">
+    <div class="obj orang" style="left:12%;top:20%"></div>
+    <div class="obj arrow" style="right:22%;top:30%;animation-delay:-1s"></div>
+    <div class="obj head" style="left:72%;top:110%;animation-delay:-3s"><img src="meme_05.jpg" alt=""></div>
+    <div class="obj stairs" style="left:8%;top:150%"></div>
+    <div class="obj orang" style="right:10%;top:190%;animation-delay:-4s"></div>
+  </div>
+  <div class="fl" data-speed="-0.5">
+    <div class="obj arrow" style="left:4%;top:70%"></div>
+    <div class="obj head" style="left:84%;top:12%;animation-delay:-2s"><img src="meme_02.jpg" alt=""></div>
+    <div class="obj orang" style="left:40%;top:130%;animation-delay:-1.5s;transform:scale(.6)"></div>
+    <div class="obj arrow" style="right:6%;top:160%;animation-delay:-3s"></div>
+    <div class="obj head" style="left:3%;top:220%"><img src="meme_04.jpg" alt=""></div>
+    <div class="obj arrow" style="left:50%;top:260%"></div>
+  </div>
+  <div class="fl" data-speed="-0.85">
+    <div class="obj orang" style="left:88%;top:80%;width:110px;height:110px"></div>
+    <div class="obj arrow" style="left:16%;top:200%;transform:scale(1.6)"></div>
+    <div class="obj head" style="left:76%;top:300%;width:150px"><img src="meme_03.jpg" alt=""></div>
+    <div class="obj orang" style="left:8%;top:340%"></div>
+  </div>
+</div>
+
+<div class="mind" aria-live="polite"><span class="brain" id="brain">&#129504;</span><div class="bar"><i id="mbar"></i></div><b id="mlvl">MIND: 1<br>smol brain</b></div>
+
+<main>
+<div class="mq" role="marquee"><span>&#127818; shef has cooked &#127818; orang is ready &#127818; how 2 cook: put fire on food &#127818; mind is expanding (please wait) &#127818; $SHEF on solana &#127818; u want food? &#127818; stonks (culinary) &#127818; </span></div>
+
+<header class="hero" id="top">
+  <div>
+    <span class="onair">&#9679; ON AIR</span>
+    <div class="tv rv in">
+      <div class="scr"><img src="meme_01.jpg" alt="Meme Man, the low-poly bald 3D head, in a white chef coat in a commercial kitchen, captioned shef"></div>
+      <div class="knobs"><i></i><i></i></div>
+    </div>
+    <h1 class="word">SHEF</h1>
+    <div class="tk">$SHEF &middot; SOLANA &middot; CHANNEL &infin;</div>
+    <p class="tag">how 2 cook: put fire on food. <s>recipe</s> recipie</p>
+    <div class="btns"><a class="btn" href="#buy">BUY $SHEF</a><a class="btn g" href="#lore">WATCH EPISODE</a></div>
+  </div>
+</header>
+
+<section id="lore" data-lvl="2">
+  <div class="wrap">
+    <div class="ep">EPISODE 1 &middot; ORIGIN OF SHEF</div>
+    <h2 class="rv">the recipie</h2>
+    <div class="card rv">
+      <div class="stamp">SHEF<br>APPROVE</div>
+      <h3>~ how shef was cook ~</h3>
+      <p>long ago (2014-ish) the internet make a man. he is low-poly. he is bald. he have no eyebrow. he is call Meme Man and he live in the "Surreal Memes" void, where he find orang, say "stonks", get angery, and climb stair to nowhere while a voice say "mind = expanded".</p>
+      <p>one day someone put him in white coat in real kitchen and write one word: <b>shef</b>. not chef. shef. this is correct. the kitchen is real. the head is not. nobody know who make this one first. it simply arrive, like orang.</p>
+      <p>then come the cousins. pink head with moustache (sous shef). green head with pink stripe and angry arrows (line cook, very intense). Big Green, the block man with arrows going up up up (head of finance). they all work in kitchen now.</p>
+      <p>why coin? because shef has cooked. because every chart is just stair to nowhere until it is not. because in surreal kitchen, food is not food, money is not money, and $SHEF is $SHEF.</p>
+      <div class="note">INGREDIENT: 1 head (3D). 1 coat (white). fire (some). STEP: put fire on food. wait. food is now cook. serve to void.</div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" data-lvl="3">
+  <div class="wrap">
+    <div class="ep">EPISODE 2 &middot; MISE EN PLACE</div>
+    <h2 class="rv">ingredience</h2>
+    <p class="rv" style="font-family:var(--comic);font-size:19px;margin-top:-10px">click ingredient to cook it. click more to cook more. do not overcook (u will overcook)</p>
+    <div class="ing" id="ing"></div>
+  </div>
+</section>
+
+<section id="buy" data-lvl="4">
+  <div class="wrap">
+    <div class="ep">EPISODE 3 &middot; HOW 2 BUY</div>
+    <h2 class="rv">how 2 cook $SHEF</h2>
+    <div class="steps">
+      <div class="st rv"><div><b>GET PHANTOM</b><p>download Phantom wallet (app or browser). write seed phrase on paper. <i>do not put fire on paper.</i></p></div></div>
+      <div class="st rv"><div><b>GET SOL</b><p>buy SOL on exchange or in Phantom. send to ur wallet. <i>SOL is the fire.</i></p></div></div>
+      <div class="st rv"><div><b>GO TO PUMP.FUN</b><p>open pump.fun, connect Phantom. <i>this is the kitchen.</i></p></div></div>
+      <div class="st rv"><div><b>PASTE CA</b><p>copy official $SHEF contract address from this page. check it. <i>wrong address = wrong food.</i></p></div></div>
+      <div class="st rv"><div><b>BUY</b><p>put amount, confirm in Phantom. <i>food is cook. shef is proud.</i></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tokenomics" data-lvl="5">
+  <!-- only keep these claims if true at launch -->
+  <div class="wrap">
+    <div class="ep">EPISODE 4 &middot; THE NUMBER</div>
+    <h2 class="rv">tokenomic (cook time)</h2>
+    <div class="tk3">
+      <div class="cube rv"><div><b>1,000,000,000</b><span>supply. many food</span></div></div>
+      <div class="cube rv"><div><b>FAIR LAUNCH</b><span>on pump.fun. same kitchen 4 all</span></div></div>
+      <div class="cube rv"><div><b>0 RECIPIE</b><span>no roadmap. only fire</span></div></div>
+    </div>
+    <div class="ca rv"><span class="lb">CA:</span><code id="ca">Contract address revealed at launch</code><button id="copy">COPY</button></div>
+  </div>
+</section>
+
+<section id="socials" data-lvl="6">
+  <div class="wrap">
+    <div class="ep">EPISODE 5 &middot; STAIR TO EVERYWHERE</div>
+    <h2 class="rv">portal (social)</h2>
+    <div class="portals">
+      <a href="#" class="rv"><span>X</span></a>
+      
+      <a href="#" class="rv"><span>PUMP.FUN</span></a>
+      <a href="#" class="rv"><span>DEX<br>SCREENER</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wa">~*~ thank u 4 visit shef kitchen ~*~</div>
+  <div class="bdg"><span>BEST VIEWED IN THE VOID</span><span>MADE WITH MS PAINT 3D</span><span>ORANG CERTIFIED</span><span>MIND: EXPANDED</span></div>
+  <div class="gb"><b>GUESTBOOK</b>
+    <p>orang man: "very good food. 10/10 would orang"</p>
+    <p>anonymous: "i put fire on food and now house is food"</p>
+    <p>Big Green: "^^^ ^^^ ^^^ (arrows)"</p>
+  </div>
+  <div>u are visitor <b id="hits" style="color:var(--sun)">000000</b> to the kitchen</div>
+  <p class="disc">$SHEF is a meme coin with no intrinsic value and no expectation of financial return. No roadmap. Not financial advice. Not affiliated with the original (anonymous) creators of Meme Man or the Surreal Memes community, or any restaurant, chef or cooking show. Crypto is risky; only put fire on money u can lose.</p>
+</footer>
+
+<div class="pop" id="pop" role="dialog" aria-label="shef message">
+  <div class="t"><span>shef.exe</span><button id="popx" aria-label="close">x</button></div>
+  <div class="b"><img src="remix_06.jpg" alt=""><span><b>sous shef has enter the chat:</b><br>u want food?</span></div>
+</div>
+
+<script>
+const CA = "";
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $=s=>document.querySelector(s),root=document.documentElement;
+
+  /* parallax */
+  const L=[...document.querySelectorAll('[data-speed]')];let tk=false;
+  function para(){const y=scrollY;L.forEach(l=>{const s=+l.dataset.speed;l.style.transform=(l.classList.contains('sun')?'translate(-50%,-50%) ':'')+`translate3d(0,${(y*s).toFixed(1)}px,0)`});
+    const p=Math.min(1,y/Math.max(1,document.body.scrollHeight-innerHeight));root.style.setProperty('--hue',(p*160).toFixed(0)+'deg');tk=false}
+  if(!reduce){addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(para)}},{passive:true});para()}
+
+  /* reveal */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  /* mind expansion meter */
+  const lv=[[1,'smol brain'],[2,'brain: thinking'],[3,'brain: big'],[4,'brain: glowing'],[5,'brain: galaxy'],[6,'MIND = EXPANDED']];
+  const sio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)setLvl(+e.target.dataset.lvl)}),{threshold:.35});
+  document.querySelectorAll('[data-lvl]').forEach(s=>sio.observe(s));
+  const top=new IntersectionObserver(es=>{if(es[0].isIntersecting)setLvl(1)},{threshold:.5});top.observe($('#top'));
+  function setLvl(n){const [a,b]=lv[n-1];$('#mlvl').innerHTML='MIND: '+a+'<br>'+b;const pc=(n/6*100)+'%';$('#mbar').style.height=pc;$('#mbar').style.setProperty('--w',pc);$('#brain').style.transform=`scale(${1+n*.18}) rotate(${n*30}deg)`}
+
+  /* ingredients gallery: all memes + remixes, click to cook */
+  const G=[['meme_01','shef','the main ingredient'],['meme_02','sous shef','pink. moustache. fresh'],['meme_03','line cook','green-pink. angery. arrows'],['meme_04','Big Green','head of finance. up only'],['meme_05','green bro','smug. marinated'],
+    ['remix_01','shef (deep fry)','too much fire'],['remix_02','shef (low poly-er)','even less poly'],['remix_03','shef x2','batch cooking'],['remix_04','shef (vapor)','served cold'],['remix_05','shef (labelled)','$SHEF branded'],['remix_06','sous shef (crispy)','hot pink']];
+  const st=['raw','medium rare','well done','???','burnt (perfect)'];
+  const ing=$('#ing');
+  G.forEach(([f,n,d],i)=>{const b=document.createElement('button');b.className='cook rv';b.style.setProperty('--rz',((i%2?1:-1)*(2+i%3))+'deg');let c=0;
+    b.innerHTML=`<span class="fr"><img src="${f}.jpg" alt="${n}: ${d}" loading="lazy"></span><span>${n}</span><small>${d} &middot; <em>${st[0]}</em></small>`;
+    b.onclick=()=>{b.classList.remove('l'+c);c=(c+1)%5;if(c)b.classList.add('l'+c);b.querySelector('em').textContent=st[c]};
+    ing.appendChild(b);io.observe(b)});
+
+  /* CA */
+  if(CA)$('#ca').textContent=CA;
+  $('#copy').onclick=()=>{const b=$('#copy');if(!CA){b.textContent='SOON';setTimeout(()=>b.textContent='COPY',1400);return}
+    (navigator.clipboard?navigator.clipboard.writeText(CA):Promise.reject()).then(()=>b.textContent='COPIED',()=>b.textContent='SELECT IT').finally(()=>setTimeout(()=>b.textContent='COPY',1400))};
+
+  $('#hits').textContent=String(42069+Math.floor(Date.now()/600000)%900000).padStart(6,'0');
+
+  /* orang cursor trail */
+  if(!reduce&&matchMedia('(pointer:fine)').matches){let last=0;const em=['\u{1F34A}','\u{1F525}','⬆','\u{1F9E0}'];
+    addEventListener('mousemove',e=>{const t=performance.now();if(t-last<70)return;last=t;const s=document.createElement('span');s.className='tr';s.textContent=em[Math.floor(Math.random()*em.length)];s.style.left=e.clientX+8+'px';s.style.top=e.clientY+8+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),1000)})}
+
+  /* popup */
+  setTimeout(()=>$('#pop').classList.add('on'),8000);
+  $('#popx').onclick=()=>$('#pop').classList.remove('on');
+})();
+</script>
+</body>
+</html>
